@@ -1,9 +1,12 @@
 package graph;
 
+import com.sun.javafx.scene.control.skin.VirtualFlow;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 
 
@@ -37,25 +40,27 @@ public class Graph implements IDirectedGraph {
 		return false;
 	}
 	
-	public void addNode(Node _node){
+	public void addNode(Node _node)
+        {
 		adjacence.put(_node, new ArrayList<Arc>());
 
 	}
 	
-	public void addArc(Arc _edge){
+	public void addArc(Arc _edge)
+        {
 	
 		if (!hasArc(_edge.getSource(),_edge.getDestination()))
 			adjacence.get(_edge.getSource()).add(_edge);
 	
 	}
 	
-	public List<Node> getAllNodes(){
-		//A COMPLETER
-		
-		return null;
+	public Set<Node> getAllNodes()
+        {
+		return adjacence.keySet();
 	}
 	
-	public int getNbNodes(){
+	public int getNbNodes()
+        {
 		//A COMPLETER
 		
 		return 0;
@@ -66,25 +71,41 @@ public class Graph implements IDirectedGraph {
 	 * @param _n
 	 * @return tous les arcs de source _n
 	 */
-	public List<Arc> getArc(Node _n){
+	public List<Arc> getArcs(Node _n)
+        {
 		
 		return adjacence.get(_n);
 	}
 	/**
 	 * renvoie tous les noeuds qui sont destination d'un arc dont la source est _n
 	 */
-	public List<Node> getAdjNodes(Node _n){
-		//A COMPLETER
-		return null;
+	public List<Node> getAdjNodes(Node _n)
+        {
+            /*return getArcs(_n)
+                    .stream()
+                    .map()
+                    .collect(Collectors.toList());*/
+            List<Node> adj_nodes = new ArrayList();
+            
+            for(Arc arc : adjacence.get(_n))
+            {
+                adj_nodes.add(arc.getDestination());
+            }
+            
+            return adj_nodes;
 	}
 	
 	
 
 	@Override
-	public String toString() {
+	public String toString() 
+        {
 		String s="Graph \n";
-		//A COMPLETER
 		
+                for(Node n : this.getAllNodes())
+                {
+                    
+                }
 		
 		return s;
 	}
