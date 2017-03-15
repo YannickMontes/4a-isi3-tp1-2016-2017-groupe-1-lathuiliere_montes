@@ -76,10 +76,11 @@ public class Arc {
 	@Override
 	public String toString() 
         {
-		return source.getLabel().toString() + " ==> "+ destination.getLabel().getLabel() +"("+valuation+")";
+            StringBuilder stb = new StringBuilder(); 
+            
+            stb.append(String.format("[%s ==> %s (%s)]", source.getLabel().toString(), destination.getLabel().toString(), valuation.toString()));
+            
+            return stb.toString();
 	}
-    
-    
-    
     
 }

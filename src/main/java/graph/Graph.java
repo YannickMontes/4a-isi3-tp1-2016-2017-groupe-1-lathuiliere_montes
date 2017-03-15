@@ -101,17 +101,12 @@ public class Graph implements IDirectedGraph {
             StringBuilder stb = new StringBuilder();
             
             stb.append("Graph \n");
-
+            
             for(Node n : this.getAllNodes())
             {
-                stb.append("[");
-                stb.append(n.toString());
-                
-                stb.append(this.getArcs(n).toString());
-                
-                stb.append("]\n");
+                stb.append(String.format("[%s %s]\n", n.toString(), this.getArcs(n).toString()));
             }
-
+            
             return stb.toString();
 	}
 
