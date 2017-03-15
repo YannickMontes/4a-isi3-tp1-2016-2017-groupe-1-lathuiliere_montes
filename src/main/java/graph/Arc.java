@@ -74,7 +74,8 @@ public class Arc {
 	}
 
 	@Override
-	public String toString() {
+	public String toString() 
+        {
 		return source.getLabel().toString() + " ==> "+ destination.getLabel().getLabel() +"("+valuation+")";
 	}
     

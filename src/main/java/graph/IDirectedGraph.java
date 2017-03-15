@@ -23,6 +23,6 @@ public interface IDirectedGraph extends IGraph{
 	 * @param _n
 	 * @return tous les arcs du graph ayant pour source le noeud _n
 	 */
-	public List<Arc> getArc(Node _n);
+	public List<Arc> getArcs(Node _n);
 	
 }

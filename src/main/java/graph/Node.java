@@ -49,8 +49,13 @@ public class Node {
     
     
 	@Override
-	public String toString() {
-		return ""+label;
+	public String toString() 
+        {
+            StringBuilder stb = new StringBuilder();
+            
+            stb.append(String.format("Node=%d : ", this.label));
+            
+            return stb.toString();
 	}
 
 

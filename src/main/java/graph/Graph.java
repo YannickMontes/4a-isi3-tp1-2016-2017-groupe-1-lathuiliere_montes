@@ -60,10 +60,8 @@ public class Graph implements IDirectedGraph {
 	}
 	
 	public int getNbNodes()
-        {
-		//A COMPLETER
-		
-		return 0;
+        {	
+		return this.getAllNodes().size();
 	}
 	
 	/**
@@ -100,14 +98,21 @@ public class Graph implements IDirectedGraph {
 	@Override
 	public String toString() 
         {
-		String s="Graph \n";
-		
-                for(Node n : this.getAllNodes())
-                {
-                    
-                }
-		
-		return s;
+            StringBuilder stb = new StringBuilder();
+            
+            stb.append("Graph \n");
+
+            for(Node n : this.getAllNodes())
+            {
+                stb.append("[");
+                stb.append(n.toString());
+                
+                stb.append(this.getArcs(n).toString());
+                
+                stb.append("]\n");
+            }
+
+            return stb.toString();
 	}
 
 
