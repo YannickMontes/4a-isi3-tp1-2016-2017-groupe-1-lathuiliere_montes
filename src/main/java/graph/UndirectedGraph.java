@@ -22,16 +22,13 @@ public class UndirectedGraph implements IUndirectedGraph
     }
     public void addEdge(Node _node1, Node _node2) 
     {
-        Arc edgeA;
-        Arc edgeR;
-        
         this.graph.addArc(new Arc(_node1, _node2, null));
         this.graph.addArc(new Arc(_node2, _node1, null));
     }
 
     public boolean hasEdge(Node _node1, Node _node2) 
     {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.graph.hasArc(_node1, _node2);
     }
 
     public void addNode(Node _node) 
