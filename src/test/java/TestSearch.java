@@ -50,13 +50,13 @@ public class TestSearch {
         Iterator<Node> iterdgBGS = dg.creerBFSIterator(na);
         System.out.println("Wiki bfs:");
         while (iterdgBGS.hasNext()) {
-            System.out.println(iterdgBGS.next().toString());
+            System.out.println(iterdgBGS.next());
         }
 
         Iterator<Node> iterdgDFS = dg.creerDFSIterator(na);
         System.out.println("Wiki dfs:");
         while (iterdgDFS.hasNext()) {
-            System.out.println(iterdgDFS.next().toString());
+            System.out.println(iterdgDFS.next());
         }
 
         //exemple graph non oriente
@@ -81,13 +81,13 @@ public class TestSearch {
         Iterator<Node> iterugBFS = ug.creerBFSIterator(na);
         System.out.println("bfs:");
         while (iterugBFS.hasNext()) {
-            System.out.println(iterugBFS.next().toString());
+            System.out.println(iterugBFS.next());
         }
 
         Iterator<Node> iterugDFS = ug.creerDFSIterator(na);
         System.out.println("dfs:");
         while (iterugDFS.hasNext()) {
-            System.out.println(iterugDFS.next().toString());
+            System.out.println(iterugDFS.next());
         }
     }
 }
