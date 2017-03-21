@@ -45,14 +45,22 @@ On parcourt les nodes d'un graph en appellant tout string. Pour chaque Node, on 
 public String toString() 
 {
     StringBuilder stb = new StringBuilder();
-    
+
     stb.append("Graph \n");
-    
+
     for(Node n : this.getAllNodes())
     {
-        stb.append(String.format("[%s %s]\n", n.toString(), this.getArcs(n).toString()));
+        stb.append(String.format("[%s : [", n));
+        List<Arc> arcs = this.getArcs(n);
+        for(int i=0; i<arcs.size(); i++)
+        {
+            stb.append(arcs.get(i));
+            if(i<arcs.size()-1)
+                stb.append(" , ");
+        }
+        stb.append("]]\n");
     }
-    
+
     return stb.toString();
 }
 ```
@@ -62,9 +70,9 @@ public String toString()
 public String toString() 
 {
     StringBuilder stb = new StringBuilder();
-    
-    stb.append(String.format("Node=%d : ", this.label));
-    
+
+    stb.append(String.format("Node=%s", this.label.toString()));
+
     return stb.toString();
 }
 ```
@@ -75,7 +83,10 @@ public String toString()
 {
     StringBuilder stb = new StringBuilder(); 
     
-    stb.append(String.format("[%s ==> %s (%s)]", source.getLabel().toString(), destination.getLabel().toString(), valuation.toString()));
+    stb.append(String.format("%s ==> %s", source.getLabel().toString(), destination.getLabel().toString()));
+    stb.append("(");
+    stb.append(valuation);
+    stb.append(")");
     
     return stb.toString();
 }
