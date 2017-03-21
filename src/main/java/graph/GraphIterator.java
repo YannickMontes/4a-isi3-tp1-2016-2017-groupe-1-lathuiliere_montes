@@ -31,7 +31,7 @@ public abstract class GraphIterator implements Iterator<Node> {
     
     @Override
     public boolean hasNext() {
-        return !hasNextChild();
+        return hasNextChild();
     }
     
     @Override
