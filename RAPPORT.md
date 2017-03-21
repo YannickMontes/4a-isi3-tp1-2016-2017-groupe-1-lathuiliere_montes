@@ -95,9 +95,23 @@ public String toString()
 ## Question 2
 *Expliquer le code ajouté et insérer un schéma du patron de conception mis en place*
 
-Schéma
+Voici le schéma de notre implémentation concernant les graphes non orientés.
 :-----------------------------------------:
-![](/images/packgraph.png?raw=true)
+![](/images/UnidrectedDirected.png?raw=true)
+
+Etant donné qu'un graph non orienté possède beaucoup de fonction similaires à un graph normal, nous avons décidé de mettre un attribut graph au sein de la classe UndirectedGraph.
+C'est une solution rapide et efficace, ne demandant aucun changement aux classes actuelles.
+
+La classe UndirectGraph possède donc des fonctions qui découlent directement de la classe Graph. Un exemple est disponible ci-dessous:
+
+```java
+public Set<Node> getAllNodes() 
+{
+    return this.graph.getAllNodes();
+}
+```
+
+
 
 ## Question 3
 *Expliquer le code ajouté et insérer un schéma du patron de conception mis en place*
