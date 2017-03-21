@@ -116,12 +116,12 @@ public Set<Node> getAllNodes()
 ## Question 3
 *Expliquer le code ajouté et insérer un schéma du patron de conception mis en place*
 
-Nous avons commencé par créer une classe abstraire GraphIterator, implémentant la classe Java "Iterator".
-
 #### Schéma
 *PLACE HERE*
 
 #### Classe GraphIterator
+*Nous avons commencé par créer une classe abstraire GraphIterator, implémentant la classe Java "Iterator".*
+
 - Propriétés
 `````
 protected IGraph graph; // Instance de type IGraph, pour ainsi être compatible avec les différentes types de graphes
@@ -131,9 +131,7 @@ protected List<Node> markedNodes; // liste de noeuds "visités", même principe 
 
 - Fonctions
 `````
-    /*
-    seul la fonction next() est commune aux classes filles, 
-    /*
+    //seul la fonction next() est commune aux classes filles, 
     
     @Override
     public Node next() {
@@ -189,7 +187,8 @@ protected List<Node> markedNodes; // liste de noeuds "visités", même principe 
     public boolean hasNext() {
         return !this.waitingLine.isEmpty(); // Retourne true si il reste des elements dans la file. False sinon
     }
-````
+``````
+
 
 ## Question 4
 *Expliquer le code ajouté et insérer un schéma du patron de conception mis en place*
