@@ -30,7 +30,7 @@ public class TestSearch {
 		Arc af = new Arc(na,ne, null);
 		Arc ag = new Arc(ne,nf, null);
 
-		/*IDirectedGraph dg = new Graph();
+		IDirectedGraph dg = new Graph();
 		dg.addNode(na);dg.addNode(nb);dg.addNode(nc);dg.addNode(nd);dg.addNode(ne);dg.addNode(nf);dg.addNode(ng);
 		dg.addArc(aa);dg.addArc(ab);dg.addArc(ac);dg.addArc(ad);dg.addArc(ae);dg.addArc(af);dg.addArc(ag);
 		System.out.println(dg);
@@ -63,11 +63,11 @@ public class TestSearch {
 		Iterator<Node> iterugBFS= ug.creerBFSIterator(na);
 		System.out.println("bfs:");
 		while (iterugBFS.hasNext())
-			System.out.println(iterugBFS.next());
+		System.out.println(iterugBFS.next());
 
 		Iterator<Node> iterugDFS= ug.creerDFSIterator(na);
 		System.out.println("dfs:");
 		while (iterugDFS.hasNext())
-			System.out.println(iterugDFS.next());*/
+                System.out.println(iterugDFS.next());
 	}
 }
