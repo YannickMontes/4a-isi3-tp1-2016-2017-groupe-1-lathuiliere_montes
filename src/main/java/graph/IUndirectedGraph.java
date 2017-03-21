@@ -1,5 +1,6 @@
 package graph;
 
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
@@ -15,6 +16,5 @@ public interface IUndirectedGraph extends IGraph{
 	 * 
 	 */
 	public boolean hasEdge(Node _node1,Node _node2);
-
 
 }
