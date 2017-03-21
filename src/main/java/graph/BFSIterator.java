@@ -15,16 +15,18 @@ public class BFSIterator extends GraphIterator {
         super(g, sn);
         
         this.waitingLine.add(sn);
+        this.markedNodes.add(sn);
     }
 
     @Override
     public void addNode(Node n) {
-        
+        this.waitingLine.add(n);
     }
 
     @Override
     public Node delNode() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Node removed = this.waitingLine.remove(0);
+        return removed;
     }
     
 }
