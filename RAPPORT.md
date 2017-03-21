@@ -118,15 +118,18 @@ public Set<Node> getAllNodes()
 
 Nous avons commencé par créer une classe abstraire GraphIterator, implémentant la classe Java "Iterator".
 
-### Classe GraphIterator
-Propriétés
+#### Schéma
+*PLACE HERE*
+
+#### Classe GraphIterator
+- Propriétés
 `````
 protected IGraph graph; // Instance de type IGraph, pour ainsi être compatible avec les différentes types de graphes
 protected Node sourceNode; // Noeud source, point de départ pour le traitement
 protected List<Node> markedNodes; // liste de noeuds "visités", même principe pour BFS et DFS
 `````
 
-Fonctions
+- Fonctions
 `````
     /*
     seul la fonction next() est commune aux classes filles, 
@@ -154,6 +157,39 @@ Fonctions
     public abstract Node delNode(); // fonction pour enlever un noeud dans la structure (pile ou file)
 `````
 
+#### Classe BFSIterator
+- Propriétés
+````
+    Queue<Node> waitingLine; // Utilisation d'une Queue pour gérer la file
+`````
+
+- Fonctions
+`````
+    public BFSIterator(IGraph g, Node sn) {
+        super(g, sn);
+
+        this.waitingLine = new LinkedList(); // Après une rapide recherche sur stack, LinkedList est cité comme la méthode la plus adapté pour une file FIFO
+
+        this.waitingLine.add(sn); // Ajout dans la file du noeud source
+        this.markedNodes.add(sn); // Ajout du noeud source dans la liste des noeuds marqués
+    }
+
+    @Override
+    public void addNode(Node n) {
+        this.waitingLine.add(n); // Insère un élément dans la file d'attente
+    }
+
+    @Override
+    public Node delNode() {
+        Node removed = this.waitingLine.remove(); // Supprime la tête de file
+        return removed;
+    }
+
+    @Override
+    public boolean hasNext() {
+        return !this.waitingLine.isEmpty(); // Retourne true si il reste des elements dans la file. False sinon
+    }
+````
 
 ## Question 4
 *Expliquer le code ajouté et insérer un schéma du patron de conception mis en place*
