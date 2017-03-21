@@ -94,12 +94,22 @@ public String toString()
 
 ## Question 2
 *Expliquer le code ajouté et insérer un schéma du patron de conception mis en place*
+
 Schéma
 :-----------------------------------------:
-![](/images/packgraph.PNG?raw=true)
+![](/images/packgraph.png?raw=true)
 
 ## Question 3
 *Expliquer le code ajouté et insérer un schéma du patron de conception mis en place*
+
+Nous avons commencé par créer une classe abstraire GraphIterator, implémentant la classe Java "Iterator".
+
+Propriétés
+`````
+protected IGraph graph; // Instance de type IGraph, pour ainsi être compatible avec les différentes types de graphes
+protected Node sourceNode;
+protected List<Node> markedNodes;
+````
 
 ## Question 4
 *Expliquer le code ajouté et insérer un schéma du patron de conception mis en place*

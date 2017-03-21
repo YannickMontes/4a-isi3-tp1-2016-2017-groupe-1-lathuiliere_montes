@@ -55,11 +55,9 @@ public class Node {
     public Label getLabel() {
         return label;
     }
-    
-    
+
     @Override
-    public String toString() 
-    {
+    public String toString() {
         StringBuilder stb = new StringBuilder();
 
         stb.append(String.format("Node=%s", this.label.toString()));

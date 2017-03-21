@@ -78,34 +78,29 @@ public class Graph implements IDirectedGraph {
                     .stream()
                     .map()
                     .collect(Collectors.toList());*/
-            List<Node> adj_nodes = new ArrayList();
-            
-            for(Arc arc : adjacence.get(_n))
-            {
-                adj_nodes.add(arc.getDestination());
-            }
-            
-            return adj_nodes;
-	}
-	
-	
+        List<Node> adj_nodes = new ArrayList();
+
+        for (Arc arc : adjacence.get(_n)) {
+            adj_nodes.add(arc.getDestination());
+        }
+
+        return adj_nodes;
+    }
 
     @Override
-    public String toString() 
-    {
+    public String toString() {
         StringBuilder stb = new StringBuilder();
 
         stb.append("Graph \n");
 
-        for(Node n : this.getAllNodes())
-        {
+        for (Node n : this.getAllNodes()) {
             stb.append(String.format("[%s : [", n));
             List<Arc> arcs = this.getArcs(n);
-            for(int i=0; i<arcs.size(); i++)
-            {
+            for (int i = 0; i < arcs.size(); i++) {
                 stb.append(arcs.get(i));
-                if(i<arcs.size()-1)
+                if (i < arcs.size() - 1) {
                     stb.append(" , ");
+                }
             }
             stb.append("]]\n");
         }
@@ -113,15 +108,13 @@ public class Graph implements IDirectedGraph {
         return stb.toString();
     }
 
-
     @Override
     public Iterator<Node> creerDFSIterator(Node sn) {
         return new DFSIterator(this, sn);
     }
 
     @Override
-    public Iterator<Node> creerBFSIterator(Node n)
-    {
+    public Iterator<Node> creerBFSIterator(Node n) {
         return new BFSIterator(this, n);
     }
 

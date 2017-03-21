@@ -20,7 +20,7 @@ public class UndirectedGraph implements IUndirectedGraph {
     public UndirectedGraph(Graph g) {
         this.graph = g;
     }
-    
+
     public UndirectedGraph() {
         this.graph = new Graph();
     }
@@ -52,7 +52,7 @@ public class UndirectedGraph implements IUndirectedGraph {
 
     @Override
     public Iterator<Node> creerBFSIterator(Node sn) {
-        return new BFSIterator(this, sn);  
+        return new BFSIterator(this, sn);
     }
 
     @Override

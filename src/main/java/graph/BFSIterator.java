@@ -15,12 +15,12 @@ import java.util.Queue;
 public class BFSIterator extends GraphIterator {
 
     Queue<Node> waitingLine;
-    
+
     public BFSIterator(IGraph g, Node sn) {
         super(g, sn);
-        
+
         this.waitingLine = new LinkedList();
-        
+
         this.waitingLine.add(sn);
         this.markedNodes.add(sn);
     }
@@ -37,8 +37,8 @@ public class BFSIterator extends GraphIterator {
     }
 
     @Override
-    public boolean hasNextChild() {
+    public boolean hasNext() {
         return !this.waitingLine.isEmpty();
     }
-    
+
 }

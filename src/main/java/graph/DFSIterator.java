@@ -14,10 +14,10 @@ import java.util.Stack;
 public class DFSIterator extends GraphIterator {
 
     Stack<Node> stack;
-    
+
     public DFSIterator(IGraph g, Node sn) {
         super(g, sn);
-        
+
         this.stack = new Stack<Node>();
         this.stack.push(sn);
     }
@@ -34,8 +34,8 @@ public class DFSIterator extends GraphIterator {
     }
 
     @Override
-    public boolean hasNextChild() {
+    public boolean hasNext() {
         return !this.stack.isEmpty();
     }
-    
+
 }
