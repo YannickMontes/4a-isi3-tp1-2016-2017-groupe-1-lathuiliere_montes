@@ -83,6 +83,9 @@ public String toString()
 
 ## Question 2
 *Expliquer le code ajouté et insérer un schéma du patron de conception mis en place*
+Schéma
+:-----------------------------------------:
+![](/images/packgraph.PNG?raw=true)
 
 ## Question 3
 *Expliquer le code ajouté et insérer un schéma du patron de conception mis en place*
