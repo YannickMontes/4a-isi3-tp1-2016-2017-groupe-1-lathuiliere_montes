@@ -96,7 +96,7 @@ public String toString()
 
 Voici le schéma de notre implémentation concernant les graphes non orientés.
 
-![](/images/UnidrectedDirected.png?raw=true)
+![](/images/UndiirectedDirected.png?raw=true)
 
 Etant donné qu'un graph non orienté possède beaucoup de fonction similaires à un graph normal, nous avons décidé de mettre un attribut graph au sein de la classe UndirectedGraph.
 C'est une solution rapide et efficace, ne demandant aucun changement aux classes actuelles.
