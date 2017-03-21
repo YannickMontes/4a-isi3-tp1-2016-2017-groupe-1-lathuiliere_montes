@@ -2,14 +2,14 @@ package graph;
 
 /**
  * Classe representant un noeud etiquete pour un graph
- * 
+ *
  *
  */
-
 public class Node {
-	/**
-	 * etiquette du noeud
-	 */
+
+    /**
+     * etiquette du noeud
+     */
     private Label label;
     /**
      * ID unique du noeud
@@ -19,62 +19,69 @@ public class Node {
      * nombre total d'instances de Noeud
      */
     private static int nombreOfNoeud = 0;
-    
+
     /**
      * Construit un noeud avec une etiquette
+     *
      * @param _label etiquette du noeud
      */
-    public Node(Label _label){
-    	this.label = _label;
-    	this.uniqueID = nombreOfNoeud;
-    	Node.nombreOfNoeud ++;
+    public Node(Label _label) {
+        this.label = _label;
+        this.uniqueID = nombreOfNoeud;
+        Node.nombreOfNoeud++;
     }
-    
+
     /**
-     * 
+     *
      * @return l'unique ID du noeud
      */
-    public int getID() { return uniqueID ;} 
+    public int getID() {
+        return uniqueID;
+    }
+
     /**
      * Specifie l etiquette du noeud
+     *
      * @param _label
      */
-    public void setLabel(Label _label) { this.label = _label; }
+    public void setLabel(Label _label) {
+        this.label = _label;
+    }
+
     /**
-     * 
-     * @return  l etiquette du noeud
+     *
+     * @return l etiquette du noeud
      */
-    public Label getLabel() { return label; }
-
+    public Label getLabel() {
+        return label;
+    }
     
     
-	@Override
-	public String toString() 
-        {
-            StringBuilder stb = new StringBuilder();
-            
-            stb.append(String.format("Node=%s", this.label.toString()));
-            
-            return stb.toString();
-	}
+    @Override
+    public String toString() 
+    {
+        StringBuilder stb = new StringBuilder();
 
+        stb.append(String.format("Node=%s", this.label.toString()));
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Node other = (Node) obj;
-		if (uniqueID != other.uniqueID)
-			return false;
-		return true;
-	}
+        return stb.toString();
+    }
 
-    
-   
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        Node other = (Node) obj;
+        if (uniqueID != other.uniqueID) {
+            return false;
+        }
+        return true;
+    }
 }
-
-

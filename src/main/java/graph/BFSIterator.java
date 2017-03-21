@@ -5,14 +5,21 @@
  */
 package graph;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 /**
  *
  * @author yoannlathuiliere
  */
 public class BFSIterator extends GraphIterator {
 
+    Queue<Node> waitingLine;
+    
     public BFSIterator(IGraph g, Node sn) {
         super(g, sn);
+        
+        this.waitingLine = new LinkedList();
         
         this.waitingLine.add(sn);
         this.markedNodes.add(sn);
@@ -25,8 +32,13 @@ public class BFSIterator extends GraphIterator {
 
     @Override
     public Node delNode() {
-        Node removed = this.waitingLine.remove(0);
+        Node removed = this.waitingLine.remove();
         return removed;
+    }
+
+    @Override
+    public boolean hasNextChild() {
+        return !this.waitingLine.isEmpty();
     }
     
 }

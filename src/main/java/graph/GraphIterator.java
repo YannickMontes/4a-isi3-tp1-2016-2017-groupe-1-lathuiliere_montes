@@ -16,7 +16,6 @@ import java.util.List;
 public abstract class GraphIterator implements Iterator<Node> {
     protected IGraph graph; // Graph reference to an intefarce (in order to support both Graph and UndirectedGraph)
     protected Node sourceNode; // Node where to start traitments
-    protected List<Node> waitingLine; 
     protected List<Node> markedNodes;
     
     // TODO: Bad use of waintingLine, use Queue or stack in childrens
@@ -28,12 +27,11 @@ public abstract class GraphIterator implements Iterator<Node> {
         this.graph = g;
         this.sourceNode = sn;
         this.markedNodes = new ArrayList<Node>();
-        this.waitingLine = new ArrayList<Node>();
     }
     
     @Override
     public boolean hasNext() {
-        return !waitingLine.isEmpty();
+        return !hasNextChild();
     }
     
     @Override
@@ -54,4 +52,5 @@ public abstract class GraphIterator implements Iterator<Node> {
 
     public abstract void addNode(Node n);
     public abstract Node delNode();
+    public abstract boolean hasNextChild();
 }
