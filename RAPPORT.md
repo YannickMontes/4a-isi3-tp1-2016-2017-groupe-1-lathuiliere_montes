@@ -156,6 +156,8 @@ protected List<Node> markedNodes; // liste de noeuds "visités", même principe 
 `````
 
 #### Classe BFSIterator
+*Ensuite, nous avons créé une classe fille BFSIterator, héritant de la classe "GraphIterator", spécifique au traitement du parcours en largeur.*
+
 - Propriétés
 ````
     Queue<Node> waitingLine; // Utilisation d'une Queue pour gérer la file
