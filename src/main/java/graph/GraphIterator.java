@@ -14,10 +14,10 @@ import java.util.List;
  * @author yoannlathuiliere
  */
 public abstract class GraphIterator implements Iterator<Node> {
-    private IGraph graph; // Graph reference to an intefarce (in order to support both Graph and UndirectedGraph)
-    private Node sourceNode; // Node where to start traitments
-    private List<Node> waitingLine; 
-    private List<Node> markedNodes;
+    protected IGraph graph; // Graph reference to an intefarce (in order to support both Graph and UndirectedGraph)
+    protected Node sourceNode; // Node where to start traitments
+    protected List<Node> waitingLine; 
+    protected List<Node> markedNodes;
     
     public GraphIterator(IGraph g, Node sn) {
         super();
@@ -36,14 +36,20 @@ public abstract class GraphIterator implements Iterator<Node> {
     
     @Override
     public Node next() {
-        return null;
-    }
-    
-    @Override
-    public void remove() {
-        // Do nothing because remove treatment depends on used algorithm (BFS or DFS)
+        Node next = delNode();  // Take a node from the list
+        
+        List<Node> adjNodes = graph.getAdjNodes(next);
+        
+        adjNodes.forEach(n -> {
+            if(!markedNodes.contains(n)) {
+                markedNodes.add(n);
+                addNode(n);
+            }
+        });
+        
+        return next;
     }
 
     public abstract void addNode(Node n);
-    public abstract void delNode();
+    public abstract Node delNode();
 }

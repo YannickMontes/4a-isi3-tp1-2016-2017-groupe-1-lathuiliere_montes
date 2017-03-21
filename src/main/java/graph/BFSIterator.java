@@ -13,15 +13,17 @@ public class BFSIterator extends GraphIterator {
 
     public BFSIterator(IGraph g, Node sn) {
         super(g, sn);
+        
+        this.waitingLine.add(sn);
     }
 
     @Override
     public void addNode(Node n) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     @Override
-    public void delNode() {
+    public Node delNode() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
