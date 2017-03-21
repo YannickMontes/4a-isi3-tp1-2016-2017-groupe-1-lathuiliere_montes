@@ -93,10 +93,9 @@ public String toString()
 ```
 
 ## Question 2
-*Expliquer le code ajouté et insérer un schéma du patron de conception mis en place*
 
 Voici le schéma de notre implémentation concernant les graphes non orientés.
-:-----------------------------------------:
+
 ![](/images/UnidrectedDirected.png?raw=true)
 
 Etant donné qu'un graph non orienté possède beaucoup de fonction similaires à un graph normal, nous avons décidé de mettre un attribut graph au sein de la classe UndirectedGraph.
@@ -113,24 +112,23 @@ public Set<Node> getAllNodes()
 
 
 
-## Question 3
-*Expliquer le code ajouté et insérer un schéma du patron de conception mis en place*
+## Question 3 & 4
 
 #### Schéma
-*PLACE HERE*
+![](/images/GraphIterator.png?raw=true)
 
 #### Classe GraphIterator
 *Nous avons commencé par créer une classe abstraire GraphIterator, implémentant la classe Java "Iterator".*
 
 - Propriétés
-`````
+```java
 protected IGraph graph; // Instance de type IGraph, pour ainsi être compatible avec les différentes types de graphes
 protected Node sourceNode; // Noeud source, point de départ pour le traitement
 protected List<Node> markedNodes; // liste de noeuds "visités", même principe pour BFS et DFS
-`````
+```
 
 - Fonctions
-`````
+```java
     //seul la fonction next() est commune aux classes filles, 
     
     @Override
@@ -153,18 +151,20 @@ protected List<Node> markedNodes; // liste de noeuds "visités", même principe 
 
     public abstract void addNode(Node n); // fonction pour ajouter un noeud dans la structure de noeuds à traiter (pile ou file)
     public abstract Node delNode(); // fonction pour enlever un noeud dans la structure (pile ou file)
-`````
+```
 
 #### Classe BFSIterator
 *Ensuite, nous avons créé une classe fille BFSIterator, héritant de la classe "GraphIterator", spécifique au traitement du parcours en largeur.*
 
+On utilise une file, le premier noeud placé dans la liste est le premier à être visité une fois la liste remplie (First In First Out)
+
 - Propriétés
-````
+```java
     Queue<Node> waitingLine; // Utilisation d'une Queue pour gérer la file
-`````
+```
 
 - Fonctions
-`````
+```java
     public BFSIterator(IGraph g, Node sn) {
         super(g, sn);
 
@@ -189,8 +189,40 @@ protected List<Node> markedNodes; // liste de noeuds "visités", même principe 
     public boolean hasNext() {
         return !this.waitingLine.isEmpty(); // Retourne true si il reste des elements dans la file. False sinon
     }
-``````
+```
 
+#### Classe DFSIterator
+*Même principe pour le parcours en profondeur: on créer une classe DFSIterator héritant de GraphIterator.*
 
-## Question 4
-*Expliquer le code ajouté et insérer un schéma du patron de conception mis en place*
+On utilise une pile, ce qui correspond au principe du parcours en profondeur (le dernier sommet visité est le premier sorti, Last In First Out)
+
+- Attributs
+```java
+   Stack<Node> stack; // Ici ce n'est plus une file mais une pile
+```
+
+- Methodes
+```java
+    public DFSIterator(IGraph g, Node sn) {
+        super(g, sn);
+
+        this.stack = new Stack<Node>(); // On créer la pile de noeuds
+        this.stack.push(sn); // On place dans cette pile le noeud de départ
+    }
+
+    @Override
+    public void addNode(Node n) {
+        this.stack.push(n); // On empile le noeud passé en paramètre
+    }
+
+    @Override
+    public Node delNode() {
+        Node removed = this.stack.pop(); // On dépile
+        return removed; // On renvoie le noeud dépilé
+    }
+
+    @Override
+    public boolean hasNext() {
+        return !this.stack.isEmpty(); // Si la pile n'est pas vide, alors il y a un suivant
+    }
+```
