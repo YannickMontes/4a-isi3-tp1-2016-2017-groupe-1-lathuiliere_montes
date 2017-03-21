@@ -5,25 +5,37 @@
  */
 package graph;
 
+import java.util.Stack;
+
 /**
  *
  * @author yoannlathuiliere
  */
 public class DFSIterator extends GraphIterator {
 
+    Stack<Node> stack;
+    
     public DFSIterator(IGraph g, Node sn) {
         super(g, sn);
+        
+        this.stack = new Stack<Node>();
+        this.stack.push(sn);
     }
 
     @Override
     public void addNode(Node n) {
-        this.waitingLine.add(0, n);
+        this.stack.push(n);
     }
 
     @Override
     public Node delNode() {
-        Node removed = this.waitingLine.remove(this.waitingLine.size()-1);
+        Node removed = this.stack.pop();
         return removed;
+    }
+
+    @Override
+    public boolean hasNextChild() {
+        return !this.stack.isEmpty();
     }
     
 }
