@@ -19,6 +19,8 @@ public abstract class GraphIterator implements Iterator<Node> {
     protected List<Node> waitingLine; 
     protected List<Node> markedNodes;
     
+    // TODO: Bad use of waintingLine, use Queue or stack in childrens
+    
     public GraphIterator(IGraph g, Node sn) {
         super();
         
