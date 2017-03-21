@@ -53,7 +53,9 @@ public class Node {
         {
             StringBuilder stb = new StringBuilder();
             
-            stb.append(String.format("Node=%d : ", this.label));
+            stb.append("Node=");
+            stb.append(this.label.toString());
+            stb.append(" : ");
             
             return stb.toString();
 	}

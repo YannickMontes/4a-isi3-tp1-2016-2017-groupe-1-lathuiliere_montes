@@ -78,7 +78,13 @@ public class Arc {
         {
             StringBuilder stb = new StringBuilder(); 
             
-            stb.append(String.format("[%s ==> %s (%s)]", source.getLabel().toString(), destination.getLabel().toString(), valuation.toString()));
+            stb.append(String.format("["));
+            stb.append(String.format(source.getLabel().toString()));
+            stb.append(String.format(" ==> "));
+            stb.append(String.format(destination.getLabel().toString()));
+            stb.append(String.format(" ("));
+            stb.append(valuation);
+            stb.append(String.format(")]"));
             
             return stb.toString();
 	}
