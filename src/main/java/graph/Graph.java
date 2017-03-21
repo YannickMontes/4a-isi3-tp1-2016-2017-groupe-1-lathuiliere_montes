@@ -90,28 +90,28 @@ public class Graph implements IDirectedGraph {
 	
 	
 
-	@Override
-	public String toString() 
+    @Override
+    public String toString() 
+    {
+        StringBuilder stb = new StringBuilder();
+
+        stb.append("Graph \n");
+
+        for(Node n : this.getAllNodes())
         {
-            StringBuilder stb = new StringBuilder();
-            
-            stb.append("Graph \n");
-            
-            for(Node n : this.getAllNodes())
+            stb.append(String.format("[%s : [", n));
+            List<Arc> arcs = this.getArcs(n);
+            for(int i=0; i<arcs.size(); i++)
             {
-                stb.append(String.format("[%s : [", n));
-                List<Arc> arcs = this.getArcs(n);
-                for(int i=0; i<arcs.size(); i++)
-                {
-                    stb.append(arcs.get(i));
-                    if(i<arcs.size()-1)
-                        stb.append(" , ");
-                }
-                stb.append("]]\n");
+                stb.append(arcs.get(i));
+                if(i<arcs.size()-1)
+                    stb.append(" , ");
             }
-            
-            return stb.toString();
-	}
+            stb.append("]]\n");
+        }
+
+        return stb.toString();
+    }
 
 
     @Override
