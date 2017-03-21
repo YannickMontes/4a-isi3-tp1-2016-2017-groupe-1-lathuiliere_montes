@@ -1,23 +1,24 @@
 package graph;
 
 public class IntegerLabel implements Label {
-	int label;
 
-	public IntegerLabel(int label) {
-		super();
-		this.label = label;
-	}
+    int label;
 
-	public Object getLabel() {
-		return label;
-	}
+    public IntegerLabel(int label) {
+        super();
+        this.label = label;
+    }
 
-	public void setLabel(Object label) {
-		this.label = (Integer) label;
-	}
-	
-	public String toString(){
-		return String.valueOf(label) ;
-	}
-	
+    public Object getLabel() {
+        return label;
+    }
+
+    public void setLabel(Object label) {
+        this.label = (Integer) label;
+    }
+
+    public String toString() {
+        return String.valueOf(label);
+    }
+
 }

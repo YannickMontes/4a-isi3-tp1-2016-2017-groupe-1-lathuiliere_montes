@@ -104,12 +104,42 @@ Schéma
 
 Nous avons commencé par créer une classe abstraire GraphIterator, implémentant la classe Java "Iterator".
 
+### Classe GraphIterator
 Propriétés
 `````
 protected IGraph graph; // Instance de type IGraph, pour ainsi être compatible avec les différentes types de graphes
-protected Node sourceNode;
-protected List<Node> markedNodes;
-````
+protected Node sourceNode; // Noeud source, point de départ pour le traitement
+protected List<Node> markedNodes; // liste de noeuds "visités", même principe pour BFS et DFS
+`````
+
+Fonctions
+`````
+    /*
+    seul la fonction next() est commune aux classes filles, 
+    /*
+    
+    @Override
+    public Node next() {
+        Node next = delNode(); // Prend le premier noeud de la liste
+
+        List<Node> adjNodes = graph.getAdjNodes(next); // Prend tout les noeuds adjacents du noeud "next"
+
+        // Pour tout les noeuds adjacents
+        adjNodes.forEach(n -> {
+            // Si ils ne sont pas marqués
+            if (!markedNodes.contains(n)) {
+                markedNodes.add(n); // on les ajoutes à la liste des noeuds marqués
+                addNode(n); // on ajoute les noeuds à la pile ou la file (avec la méthode addNode qui est abstraite)
+            }
+        });
+
+        return next;
+    }
+
+    public abstract void addNode(Node n); // fonction pour ajouter un noeud dans la structure de noeuds à traiter (pile ou file)
+    public abstract Node delNode(); // fonction pour enlever un noeud dans la structure (pile ou file)
+`````
+
 
 ## Question 4
 *Expliquer le code ajouté et insérer un schéma du patron de conception mis en place*
