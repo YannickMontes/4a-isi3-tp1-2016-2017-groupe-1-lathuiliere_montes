@@ -28,12 +28,12 @@ public class BFSIterator extends GraphIterator {
     }
 
     @Override
-    public void addNode(Node n) {
+    public void addToQueue(Node n) {
         this.waitingLine.add(n);
     }
 
     @Override
-    public Node delNode() {
+    public Node deleteFromQueue() {
         Node removed = this.waitingLine.remove();
         return removed;
     }

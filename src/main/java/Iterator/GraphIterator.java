@@ -32,21 +32,20 @@ public abstract class GraphIterator implements Iterator<Node> {
 
     @Override
     public Node next() {
-        Node next = delNode();  // Take a node from the list
+        Node next = deleteFromQueue();  // Take a node from the list
 
         List<Node> adjNodes = graph.getAdjNodes(next);
 
         adjNodes.forEach(n -> {
             if (!markedNodes.contains(n)) {
                 markedNodes.add(n);
-                addNode(n);
+                addToQueue(n);
             }
         });
 
         return next;
     }
 
-    public abstract void addNode(Node n);
-
-    public abstract Node delNode();
+    public abstract void addToQueue(Node n);
+    public abstract Node deleteFromQueue();
 }

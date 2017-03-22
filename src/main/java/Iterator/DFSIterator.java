@@ -25,12 +25,12 @@ public class DFSIterator extends GraphIterator {
     }
 
     @Override
-    public void addNode(Node n) {
+    public void addToQueue(Node n) {
         this.stack.push(n);
     }
 
     @Override
-    public Node delNode() {
+    public Node deleteFromQueue() {
         Node removed = this.stack.pop();
         return removed;
     }
