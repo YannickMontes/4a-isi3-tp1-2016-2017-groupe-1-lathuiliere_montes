@@ -1,4 +1,4 @@
-package graph;
+package Graph.Node;
 
 public interface Label {
 

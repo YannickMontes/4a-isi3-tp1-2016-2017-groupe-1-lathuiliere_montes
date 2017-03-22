@@ -1,11 +1,11 @@
 
-import graph.Arc;
-import graph.DoubleLabel;
-import graph.Graph;
-import graph.IDirectedGraph;
-import graph.IntegerLabel;
-import graph.Node;
-import graph.StringLabel;
+import Graph.Edge.Arc;
+import Graph.Node.DoubleLabel;
+import Graph.Graph;
+import Graph.IDirectedGraph;
+import Graph.Node.IntegerLabel;
+import Graph.Node.Node;
+import Graph.Node.StringLabel;
 
 public class TestGraph {
 

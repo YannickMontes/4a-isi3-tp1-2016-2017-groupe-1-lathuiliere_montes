@@ -1,4 +1,7 @@
-package graph;
+package Graph.Edge;
+
+import Graph.Node.Label;
+import Graph.Node.Node;
 
 /**
  * Classe representant une arrete orientee et valuee

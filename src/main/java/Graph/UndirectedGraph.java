@@ -3,8 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package graph;
+package Graph;
 
+import Graph.Edge.Arc;
+import Graph.Node.Node;
+import Iterator.DFSIterator;
+import Iterator.BFSIterator;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;

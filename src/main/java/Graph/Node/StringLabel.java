@@ -1,4 +1,4 @@
-package graph;
+package Graph.Node;
 
 public class StringLabel implements Label {
 

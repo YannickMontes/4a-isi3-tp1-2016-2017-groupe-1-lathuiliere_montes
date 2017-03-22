@@ -1,13 +1,15 @@
-package graph;
+package Graph;
 
-import com.sun.javafx.scene.control.skin.VirtualFlow;
+import Graph.Edge.Arc;
+import Graph.Node.Node;
+import Iterator.DFSIterator;
+import Iterator.BFSIterator;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 public class Graph implements IDirectedGraph {
 
