@@ -10,6 +10,7 @@ import Graph.Node.Node;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  *
@@ -36,12 +37,20 @@ public abstract class GraphIterator implements Iterator<Node> {
 
         List<Node> adjNodes = graph.getAdjNodes(next);
 
-        adjNodes.forEach(n -> {
+        adjNodes.stream()
+                .filter(n -> !markedNodes.contains(n))
+                .collect(Collectors.toList())
+                .forEach(n -> {
+                   markedNodes.add(n);
+                   addToQueue(n);
+                });
+        
+        /*adjNodes.forEach(n -> {
             if (!markedNodes.contains(n)) {
                 markedNodes.add(n);
                 addToQueue(n);
             }
-        });
+        });*/
 
         return next;
     }
