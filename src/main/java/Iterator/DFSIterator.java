@@ -17,16 +17,16 @@ public class DFSIterator extends GraphIterator {
 
     Stack<Node> stack;
 
-    public DFSIterator(IGraph g, Node sn) {
-        super(g, sn);
+    public DFSIterator(IGraph graph, Node sourceNode) {
+        super(graph, sourceNode);
 
         this.stack = new Stack<Node>();
-        this.stack.push(sn);
+        this.stack.push(sourceNode);
     }
 
     @Override
-    public void addToQueue(Node n) {
-        this.stack.push(n);
+    public void addToQueue(Node node) {
+        this.stack.push(node);
     }
 
     @Override

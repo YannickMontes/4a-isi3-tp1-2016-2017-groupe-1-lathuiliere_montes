@@ -18,18 +18,18 @@ public class BFSIterator extends GraphIterator {
 
     Queue<Node> waitingLine;
 
-    public BFSIterator(IGraph g, Node sn) {
-        super(g, sn);
+    public BFSIterator(IGraph graph, Node sourceNode) {
+        super(graph, sourceNode);
 
         this.waitingLine = new LinkedList();
 
-        this.waitingLine.add(sn);
-        this.markedNodes.add(sn);
+        this.waitingLine.add(sourceNode);
+        this.markedNodes.add(sourceNode);
     }
 
     @Override
-    public void addToQueue(Node n) {
-        this.waitingLine.add(n);
+    public void addToQueue(Node node) {
+        this.waitingLine.add(node);
     }
 
     @Override

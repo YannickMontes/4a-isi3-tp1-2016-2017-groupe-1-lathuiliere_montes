@@ -28,15 +28,15 @@ public interface IGraph {
      * renvoie tous les noeuds du graph qui sont destination d'un arc dont la
      * source est _n
      */
-    public List<Node> getAdjNodes(Node _n);
+    public List<Node> getAdjNodes(Node _node);
 
     /**
      * renvoi un iterateur pour recherche en largeur
      */
-    public Iterator<Node> creerBFSIterator(Node n);
+    public Iterator<Node> creerBFSIterator(Node node);
 
     /**
      * renvoi un iterateur pour recherche en profondeur
      */
-    public Iterator<Node> creerDFSIterator(Node n);
+    public Iterator<Node> creerDFSIterator(Node node);
 }

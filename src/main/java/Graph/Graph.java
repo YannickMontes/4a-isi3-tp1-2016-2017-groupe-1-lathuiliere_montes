@@ -66,23 +66,19 @@ public class Graph implements IDirectedGraph {
      * @param _n
      * @return tous les arcs de source _n
      */
-    public List<Arc> getArcs(Node _n) {
+    public List<Arc> getArcs(Node _node) {
 
-        return adjacence.get(_n);
+        return adjacence.get(_node);
     }
 
     /**
      * renvoie tous les noeuds qui sont destination d'un arc dont la source est
      * _n
      */
-    public List<Node> getAdjNodes(Node _n) {
-        /*return getArcs(_n)
-                    .stream()
-                    .map()
-                    .collect(Collectors.toList());*/
+    public List<Node> getAdjNodes(Node _node) {
         List<Node> adj_nodes = new ArrayList();
 
-        for (Arc arc : adjacence.get(_n)) {
+        for (Arc arc : adjacence.get(_node)) {
             adj_nodes.add(arc.getDestination());
         }
 
@@ -95,9 +91,9 @@ public class Graph implements IDirectedGraph {
 
         stb.append("Graph \n");
 
-        for (Node n : this.getAllNodes()) {
-            stb.append(String.format("[%s : [", n));
-            List<Arc> arcs = this.getArcs(n);
+        for (Node node : this.getAllNodes()) {
+            stb.append(String.format("[%s : [", node));
+            List<Arc> arcs = this.getArcs(node);
             for (int i = 0; i < arcs.size(); i++) {
                 stb.append(arcs.get(i));
                 if (i < arcs.size() - 1) {
@@ -111,13 +107,13 @@ public class Graph implements IDirectedGraph {
     }
 
     @Override
-    public Iterator<Node> creerDFSIterator(Node sn) {
-        return new DFSIterator(this, sn);
+    public Iterator<Node> creerDFSIterator(Node sourceNode) {
+        return new DFSIterator(this, sourceNode);
     }
 
     @Override
-    public Iterator<Node> creerBFSIterator(Node n) {
-        return new BFSIterator(this, n);
+    public Iterator<Node> creerBFSIterator(Node node) {
+        return new BFSIterator(this, node);
     }
 
 }

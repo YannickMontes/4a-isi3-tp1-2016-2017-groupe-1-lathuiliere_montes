@@ -21,8 +21,8 @@ public class UndirectedGraph implements IUndirectedGraph {
 
     private Graph graph;
 
-    public UndirectedGraph(Graph g) {
-        this.graph = g;
+    public UndirectedGraph(Graph graph) {
+        this.graph = graph;
     }
 
     public UndirectedGraph() {
@@ -50,18 +50,18 @@ public class UndirectedGraph implements IUndirectedGraph {
         return this.graph.getNbNodes();
     }
 
-    public List<Node> getAdjNodes(Node _n) {
-        return this.graph.getAdjNodes(_n);
+    public List<Node> getAdjNodes(Node _node) {
+        return this.graph.getAdjNodes(_node);
     }
 
     @Override
-    public Iterator<Node> creerBFSIterator(Node sn) {
-        return new BFSIterator(this, sn);
+    public Iterator<Node> creerBFSIterator(Node sourceNode) {
+        return new BFSIterator(this, sourceNode);
     }
 
     @Override
-    public Iterator<Node> creerDFSIterator(Node sn) {
-        return new DFSIterator(this, sn);
+    public Iterator<Node> creerDFSIterator(Node sourceNode) {
+        return new DFSIterator(this, sourceNode);
     }
 
 }
