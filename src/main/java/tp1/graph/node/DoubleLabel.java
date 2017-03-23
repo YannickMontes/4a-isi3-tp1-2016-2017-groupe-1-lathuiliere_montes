@@ -1,6 +1,6 @@
-package Graph.Node;
+package tp1.graph.node;
 
-import Graph.Node.Label;
+import tp1.graph.node.Label;
 
 public class DoubleLabel implements Label {
 

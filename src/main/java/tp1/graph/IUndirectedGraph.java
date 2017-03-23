@@ -1,6 +1,6 @@
-package Graph;
+package tp1.graph;
 
-import Graph.Node.Node;
+import tp1.graph.node.Node;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;

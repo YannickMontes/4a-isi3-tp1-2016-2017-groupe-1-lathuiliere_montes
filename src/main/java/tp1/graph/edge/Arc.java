@@ -1,7 +1,7 @@
-package Graph.Edge;
+package tp1.graph.edge;
 
-import Graph.Node.Label;
-import Graph.Node.Node;
+import tp1.graph.node.Label;
+import tp1.graph.node.Node;
 
 /**
  * Classe representant une arrete orientee et valuee

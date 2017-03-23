@@ -1,4 +1,4 @@
-package Graph.Node;
+package tp1.graph.node;
 
 /**
  * Classe representant un noeud etiquete pour un graph

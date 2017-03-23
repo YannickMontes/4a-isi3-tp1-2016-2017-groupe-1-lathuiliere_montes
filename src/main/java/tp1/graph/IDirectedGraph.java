@@ -1,7 +1,7 @@
-package Graph;
+package tp1.graph;
 
-import Graph.Edge.Arc;
-import Graph.Node.Node;
+import tp1.graph.edge.Arc;
+import tp1.graph.node.Node;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;

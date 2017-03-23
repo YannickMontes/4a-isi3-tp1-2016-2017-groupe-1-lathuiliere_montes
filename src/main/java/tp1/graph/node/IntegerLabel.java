@@ -1,4 +1,4 @@
-package Graph.Node;
+package tp1.graph.node;
 
 public class IntegerLabel implements Label {
 

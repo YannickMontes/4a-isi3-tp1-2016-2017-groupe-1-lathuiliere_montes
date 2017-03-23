@@ -1,14 +1,14 @@
 
 import java.util.Iterator;
 
-import Graph.Edge.Arc;
-import Graph.Graph;
-import Graph.IDirectedGraph;
-import Graph.IGraph;
-import Graph.IUndirectedGraph;
-import Graph.Node.Node;
-import Graph.Node.StringLabel;
-import Graph.UndirectedGraph;
+import tp1.graph.edge.Arc;
+import tp1.graph.Graph;
+import tp1.graph.IDirectedGraph;
+import tp1.graph.IGraph;
+import tp1.graph.IUndirectedGraph;
+import tp1.graph.node.Node;
+import tp1.graph.node.StringLabel;
+import tp1.graph.UndirectedGraph;
 
 public class TestSearch {
 

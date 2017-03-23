@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Iterator;
+package tp1.iterator;
 
-import Graph.IGraph;
-import Graph.Node.Node;
+import tp1.graph.IGraph;
+import tp1.graph.node.Node;
 import java.util.Stack;
 
 /**
