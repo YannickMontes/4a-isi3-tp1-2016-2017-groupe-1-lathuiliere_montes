@@ -10,6 +10,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import static java.util.stream.Collectors.toList;
 
 public class Graph implements IDirectedGraph {
 
@@ -32,7 +33,7 @@ public class Graph implements IDirectedGraph {
      */
     public boolean hasArc(Node _n1, Node _n2) {
         List<Arc> arretesAdj = adjacence.get(_n1);
-        
+
         for (Arc _a : arretesAdj) {
             if (_n1.equals(_a.getSource()) && _n2.equals(_a.getDestination())) {
                 return true;
@@ -78,12 +79,10 @@ public class Graph implements IDirectedGraph {
      */
     public List<Node> getAdjNodes(Node _node) {
         List<Node> adj_nodes = new ArrayList();
-        
-        adjacence.get(_node)
-                .stream()
-                .forEach(arc -> {
-                    adj_nodes.add(arc.getDestination());
-                });
+
+        adj_nodes = adjacence.get(_node).stream()
+                .map(arc -> arc.getDestination())
+                .collect(toList());
 
         return adj_nodes;
     }
@@ -94,18 +93,17 @@ public class Graph implements IDirectedGraph {
 
         stb.append("Graph \n");
 
-        this.getAllNodes().stream()
-                .forEach(node -> {
-                    stb.append(String.format("[%s : [", node));
-                    List<Arc> arcs = this.getArcs(node);
-                    for (int i = 0; i < arcs.size(); i++) {
-                        stb.append(arcs.get(i));
-                        if (i < arcs.size() - 1) {
-                            stb.append(" , ");
-                        }
-                    }
-                    stb.append("]]\n");
-                });
+        this.getAllNodes().forEach(node -> {
+            stb.append(String.format("[%s : [", node));
+            List<Arc> arcs = this.getArcs(node);
+            for (int i = 0; i < arcs.size(); i++) {
+                stb.append(arcs.get(i));
+                if (i < arcs.size() - 1) {
+                    stb.append(" , ");
+                }
+            }
+            stb.append("]]\n");
+        });
 
         return stb.toString();
     }
